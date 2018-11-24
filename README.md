@@ -1,6 +1,7 @@
 # ComponentsIndepth
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+## [KEY] Created using SCSS
+`$ ng new components-indepth --style=scss`
 
 ## Development server
 
