@@ -1,3 +1,4 @@
-<app-blog-post-tile title="Blog Post 1" summary="Summary 1"></app-blog-post-tile>
-<app-blog-post-tile title="Blog Post 2" summary="Summary 2"></app-blog-post-tile>
-<app-blog-post-tile title="Blog Post 3" summary="Summary 3"></app-blog-post-tile>
+<app-blog-post-tile 
+  *ngFor="let post of blogPosts" 
+  [blogPost]="post">
+</app-blog-post-tile>
