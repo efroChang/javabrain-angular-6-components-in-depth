@@ -33,3 +33,14 @@ Add `encapsulation: ViewEncapsulation.None` into @Component() like:
   encapsulation: ViewEncapsulation.None
 })
 ```
+
+## To style the parent component:
+### 1. Turn on ViewEncapsulation
+Remove `encapsulation: ViewEncapsulation.None`
+
+### 2. In Child SCSS file, use ":host" like:
+```
+:host {
+    margin: 20px;
+}
+```
