@@ -44,3 +44,27 @@ Remove `encapsulation: ViewEncapsulation.None`
     margin: 20px;
 }
 ```
+## Parent Component to access Children Components methods:
+### 1. In the parent template, give the *ngFor element a name
+```
+<app-blog-post-tile 
+  #tile
+  *ngFor="let post of blogPosts[currentPage]" 
+  [blogPost]="post">
+</app-blog-post-tile>
+```
+
+### 2a. In the parent component, use @ViewChildren() to get a QueryList<>:
+`@ViewChildren('tile') blogPostTileComponents: QueryList<BlogPostTileComponent>;`
+
+### 2b. If there is only one child component, use @ViewChild() instead.
+`@ViewChild('tile') blogPostTileComponent: BlogPostTileComponent;`
+
+### 3. In the parent component, loop through each child components:
+```
+  toggleExpanAllPosts() {
+    this.blogPostTileComponents.forEach((blogPost) => {
+      blogPost.toggleSummaryDisplay();
+    })
+  }
+```

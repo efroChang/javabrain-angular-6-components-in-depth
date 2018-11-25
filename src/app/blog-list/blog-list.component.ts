@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { BlogPost } from '../blog-post';
+import { BlogPostTileComponent } from '../blog-post-tile/blog-post-tile.component';
+import { QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-blog-list',
@@ -10,6 +12,8 @@ export class BlogListComponent implements OnInit {
 
   blogPosts: Array<Array<BlogPost>> = [];
   currentPage: number;
+
+  @ViewChildren('tile') blogPostTileComponents: QueryList<BlogPostTileComponent>;
 
   constructor() { }
 
@@ -23,6 +27,12 @@ export class BlogListComponent implements OnInit {
     this.currentPage = index;
 
     this.reloadBlobPosts();   // To reload the "Full Summary"
+  }
+
+  toggleExpanAllPosts() {
+    this.blogPostTileComponents.forEach((blogPost) => {
+      blogPost.toggleSummaryDisplay();
+    })
   }
 
   private reloadBlobPosts() {

@@ -1,4 +1,7 @@
+<a href="#" (click) = "toggleExpanAllPosts()">Expand/Collapse All Posts</a>
+
 <app-blog-post-tile 
+  #tile
   *ngFor="let post of blogPosts[currentPage]" 
   [blogPost]="post">
 </app-blog-post-tile>
