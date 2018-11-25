@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
     <div class="card-title">{{ blogPost.title }}</div>
-    <div class="card-text">{{ blogPost.summary }}</div>
+    <div class="card-text" (click) = "toggleSummaryDisplay()">{{ blogPost.summary }}</div>
     <a href="#" class="btn btn-primary">Read</a>
   </div>
 </div>

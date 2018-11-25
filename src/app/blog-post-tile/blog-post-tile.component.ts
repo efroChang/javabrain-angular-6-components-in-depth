@@ -10,10 +10,31 @@ import { TruncatePipe } from '../truncate.pipe';
 export class BlogPostTileComponent implements OnInit {
 
   @Input() blogPost: BlogPost;
+  fullSummary: string;
+  fullSummaryShown: boolean = false;
 
   constructor(private truncatePipe: TruncatePipe) { }
 
   ngOnInit() {
+    this.fullSummary = this.blogPost.summary;
+    this.truncateSummary();   // Truncate by default
+  }
+
+  toggleSummaryDisplay() {
+    if (this.fullSummaryShown) {
+      this.truncateSummary();
+    } else {
+      this.showFullSummary();
+    }
+
+    this.fullSummaryShown = !this.fullSummaryShown;
+  }
+
+  private truncateSummary() {
     this.blogPost.summary = this.truncatePipe.transform(this.blogPost.summary, [250]);
+  }
+
+  private showFullSummary() {
+    this.blogPost.summary = this.fullSummary;
   }
 }
