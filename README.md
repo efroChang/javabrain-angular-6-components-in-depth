@@ -68,3 +68,8 @@ Remove `encapsulation: ViewEncapsulation.None`
     })
   }
 ```
+
+## Use "ngClass" to conditionally apply styles:
+`[ngClass] = "{ 'favorite': blogPost.isFavorite }"`
+* `'favorite'` is the CSS style name
+* `blogPost.isFavorite` is the true/false to apply the style

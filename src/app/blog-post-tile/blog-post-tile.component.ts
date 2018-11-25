@@ -30,6 +30,10 @@ export class BlogPostTileComponent implements OnInit {
     this.fullSummaryShown = !this.fullSummaryShown;
   }
 
+  toggleFavorite() {
+    this.blogPost.isFavorite = !this.blogPost.isFavorite;
+  }
+
   private truncateSummary() {
     this.blogPost.summary = this.truncatePipe.transform(this.blogPost.summary, [250]);
   }
