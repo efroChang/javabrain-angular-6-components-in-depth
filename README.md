@@ -18,5 +18,18 @@ http://getbootstrap.com/
 </header>
 ```
 
-### To generate a regular class:
+## To generate a regular class:
 `$ ng g class blog-post`
+
+## To turn off View Encapsulation:
+* It means the SCSS style will be shared across components.
+
+Add `encapsulation: ViewEncapsulation.None` into @Component() like:
+```
+@Component({
+  selector: 'app-blog-post-tile',
+  templateUrl: './blog-post-tile.component.html',
+  styleUrls: ['./blog-post-tile.component.scss'],
+  encapsulation: ViewEncapsulation.None
+})
+```
