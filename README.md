@@ -112,3 +112,31 @@ removeHighlight() {
 
 ### 2. Directive takes it in using @Input():
 `@Input() color: string = "yellow";`
+
+## Content Projection using ng-content:
+### 1. Create a shell component:
+`$ ng g c shell`
+
+### 2. In app.component.html, populate the content within <app-shell>:
+* Also provide the section name, for example: `header`, `body`, and `footer`.
+```
+<app-shell>
+    <h1 header>My Blogs</h1>
+    <app-blog-list body></app-blog-list>
+    <h2 footer>Footer</h2>
+</app-shell>
+```
+
+### 3. [KEY] In shell.component.html, use <ng-contect> and "select" attribute for different sections:
+* The format of "select" attribute is `select="[section name]"`
+```
+<div>
+  <ng-content select="[header]"></ng-content>
+</div>
+<div>
+  <ng-content select="[body]"></ng-content>
+</div>
+<div>
+  <ng-content select="[footer]"></ng-content>
+</div>
+```
