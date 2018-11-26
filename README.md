@@ -105,3 +105,10 @@ removeHighlight() {
     this.element.nativeElement.style.backgroundColor = null;
 }
 ```
+
+## Pass value into the custom Directive:
+### 1. Add an attribute "color" to the template:
+`<h5 class="card-title" appHightlight color="lightblue">{{ blogPost.title }}</h5>`
+
+### 2. Directive takes it in using @Input():
+`@Input() color: string = "yellow";`

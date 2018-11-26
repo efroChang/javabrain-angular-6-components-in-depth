@@ -1,6 +1,6 @@
 <div class="card" [ngClass] = "{ 'favorite': blogPost.isFavorite }">
   <div class="card-body">
-    <h5 class="card-title" appHightlight>{{ blogPost.title }}</h5>
+    <h5 class="card-title" appHightlight color="lightblue">{{ blogPost.title }}</h5>
     <div class="card-text" (click) = "toggleSummaryDisplay()">{{ blogPost.summary }}</div>
     <a href="#" class="btn btn-primary">Read</a>
     <a href="#" class="btn btn-danger" (click) = "toggleFavorite()">Favorite</a>
