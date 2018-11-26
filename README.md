@@ -44,7 +44,7 @@ Remove `encapsulation: ViewEncapsulation.None`
     margin: 20px;
 }
 ```
-## Parent Component to access Children Components methods:
+## [KEY] Parent Component to access Children Components methods:
 ### 1. In the parent template, give the *ngFor element a name
 ```
 <app-blog-post-tile 
@@ -73,3 +73,35 @@ Remove `encapsulation: ViewEncapsulation.None`
 `[ngClass] = "{ 'favorite': blogPost.isFavorite }"`
 * `'favorite'` is the CSS style name
 * `blogPost.isFavorite` is the true/false to apply the style
+
+## To generate custon Directive:
+`$ ng generate directive highlight`
+
+## To use the custom Directive in the template:
+```
+<h5 class="card-title" appHightlight>{{ blogPost.title }}</h5>
+```
+* `appHightlight` is the custom Directive.
+
+## [KEY] To inject the Element into the Directive:
+* Use `ElementRef`:
+```
+import { Directive, ElementRef } from '@angular/core';
+export class HightlightDirective {
+
+  constructor(private element: ElementRef) { }
+}
+```
+
+## [KEY] Use "HostListener" in Directive:
+```
+@HostListener('mouseenter')
+addHighlight() {
+    this.element.nativeElement.style.backgroundColor = 'yellow';
+}
+
+@HostListener('mouseleave')
+removeHighlight() {
+    this.element.nativeElement.style.backgroundColor = null;
+}
+```
